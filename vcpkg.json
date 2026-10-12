@@ -1,0 +1,13 @@
+{
+  "name": "efspresetconverter",
+  "version-string": "1.0.0",
+  "description": "EFS Preset Converter F4SE plugin: converts old male sculpt IDs in LooksMenu presets as they load",
+  "license": "MIT",
+  "dependencies": [
+    "boost-stl-interfaces",
+    "fmt",
+    "rsm-mmio",
+    "spdlog",
+    "zydis"
+  ]
+}

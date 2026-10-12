@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "vs2026",
+      "generator": "Visual Studio 18 2026",
+      "toolset": "v145",
+      "binaryDir": "${sourceDir}/build/vs2026",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>",
+        "Boost_USE_STATIC_LIBS": "ON",
+        "CMAKE_CXX_FLAGS": "/EHsc /MP /W4 /external:W0",
+        "EFS_AUTOTEST": "OFF"
+      }
+    },
+    {
+      "name": "vs2026-autotest",
+      "inherits": "vs2026",
+      "binaryDir": "${sourceDir}/build/vs2026-autotest",
+      "cacheVariables": { "EFS_AUTOTEST": "ON" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "vs2026-release", "configurePreset": "vs2026", "configuration": "Release", "jobs": 0 },
+    { "name": "vs2026-autotest", "configurePreset": "vs2026-autotest", "configuration": "Release", "jobs": 0 }
+  ]
+}
